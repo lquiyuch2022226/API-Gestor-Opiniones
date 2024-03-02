@@ -3,7 +3,7 @@ import User from '../user/user.model.js';
 export const existenteEmail = async (correo = '') => {
     const existeEmail = await User.findOne({correo});
     if (existeEmail){
-        throw new Error(`This ${correo} is really used`);
+        throw new Error(`This email: ${correo} is really used`);
     }
 }
 
