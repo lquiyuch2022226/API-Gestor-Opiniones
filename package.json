@@ -1,7 +1,7 @@
 {
   "name": "api-gestor-opiniones",
   "version": "1.0.0",
-  "description": "En esta proyecto trabajemos una API web donde llevaremos un sistema de gestión de opiniones similar a las publicaciones de Facebook, con funcionalidades específicas centradas en la interacción y expresión de opiniones por parte de los usuarios.",
+  "description": "En este proyecto trabajemos una API web donde llevaremos un sistema de gestión de opiniones similar a las publicaciones de Facebook, con funcionalidades específicas centradas en la interacción y expresión de opiniones por parte de los usuarios.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
