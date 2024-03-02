@@ -1,5 +1,5 @@
 import bcryptjs from 'bcryptjs';
-import Usuario from '../users/user.model.js'
+import Usuario from '../user/user.model.js'
 import { generarJWT } from '../helpers/generate-jwt.js'; 
 
 export const login = async (req, res) => {
