@@ -29,6 +29,7 @@ export const publicationsGet = async (req, res) => {
             .populate('idUser', 'correo')
             .populate({
                 path: 'comments',
+                match: { estado: true },
                 populate: {
                     path: 'idUser',
                     select: 'correo'
