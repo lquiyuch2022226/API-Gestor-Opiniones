@@ -6,7 +6,9 @@ import { existePublicationById } from '../helpers/db-validators.js';
 
 import {
     commentPost,
-    commentsGet
+    commentsGet,
+    commentPut,
+    commentDelete
 } from './comment.controller.js';
 
 const router = Router();
@@ -25,5 +27,21 @@ router.get(
     validarJWT,
     commentsGet
 );
+
+router.put(
+    '/:id',
+    [
+        validarJWT,
+        check('id', 'This is not a valid id').isMongoId(),
+        validarCampos
+    ], commentPut);
+
+router.delete(
+    '/:id',
+    [
+        validarJWT,
+        check('id', 'This is not a valid id').isMongoId(),
+        validarCampos
+    ], commentDelete);
 
 export default router;

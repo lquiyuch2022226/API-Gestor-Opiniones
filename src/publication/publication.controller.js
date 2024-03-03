@@ -70,11 +70,15 @@ export const publicationPut = async (req, res) => {
 
     const publication = await Publication.findOne({_id: id});
 
+    if (!publication) {
+        return res.status(404).json({ msg: "Publication not found" });
+    }
+
     if(uid == publication.idUser){
         await Publication.findByIdAndUpdate(id, resto);
     }else{
         res.status(400).json({
-            msg: "You can't EDIT this publication because you din't create this post",
+            msg: "You can't EDIT this publication because you din't create this PUBLICATION",
         });
 
         return;
@@ -83,7 +87,7 @@ export const publicationPut = async (req, res) => {
     const publicationUpdate = await Publication.findOne({_id: id});
 
     res.status(200).json({
-        msg: 'This publication was edited',
+        msg: 'This publication was EDITED',
         publicationUpdate
     });
 }
@@ -96,16 +100,20 @@ export const publicationDelete = async (req, res) => {
 
         const publication = await Publication.findById({_id: id});
 
+        if (!publication) {
+            return res.status(404).json({ msg: "Publication not found" });
+        }    
+
         if(uid == publication.idUser){
             await Publication.findByIdAndUpdate(id, { estado: false });
         }else{
             res.status(400).json({
-                msg: "You can't DELETE this publication because you din't create this post",
+                msg: "You can't DELETE this publication because you din't create this PUBLICATION",
             });
             return;
         }
 
         res.status(200).json({
-            msg: 'This publication was deleted',
+            msg: 'This publication was DELETED',
         });
 };
