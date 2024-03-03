@@ -2,7 +2,6 @@ import { Router } from 'express';
 import { check } from 'express-validator';
 import { validarCampos } from '../middlwares/validar-campos.js';
 import { validarJWT } from '../middlwares/validar-jwt.js';
-import { existePublicationById } from '../helpers/db-validators.js';
 
 import {
     commentPost,
@@ -23,9 +22,7 @@ router.post(
     ], commentPost);
 
 router.get(
-    '/',
-    validarJWT,
-    commentsGet
+    '/', commentsGet
 );
 
 router.put(

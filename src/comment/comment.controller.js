@@ -11,7 +11,7 @@ export const commentPost = async (req, res) =>{
     const publication = await Publication.findById(publi);
 
     if (!publication) {
-        return res.status(404).json({ message: 'Publication not found' });
+        return res.status(404).json({ message: 'Publication not found, plis try with other publication' });
     }
     
     const comment = new Comment({ idUser: uid, commentText});
@@ -73,7 +73,7 @@ export const commentPut = async (req, res) => {
     const comment = await Comment.findOne({_id: id});
 
     if (!comment) {
-        return res.status(404).json({ msg: "Comment not found" });
+        return res.status(404).json({ msg: "Comment not found, plis try with other comment" });
     }
 
     if(uid == comment.idUser){
@@ -103,7 +103,7 @@ export const commentDelete = async (req, res) => {
         const comment = await Comment.findById({_id: id});
 
         if (!comment) {
-            return res.status(404).json({ msg: "Comment not found" });
+            return res.status(404).json({ msg: "Comment not found, plis try with other comment" });
         }
 
         if(uid == comment.idUser){
