@@ -1,67 +1,67 @@
 {
     "client": "Thunder Client",
     "collectionName": "commentColeccion",
-    "dateExported": "2024-03-03T18:33:04.012Z",
+    "dateExported": "2024-03-03T18:49:27.274Z",
     "version": "1.1",
     "folders": [],
     "requests": [
         {
-            "_id": "6735bc5e-7cc4-4229-8e77-1bae8e1d998d",
-            "colId": "795bb530-1b25-4a74-b9bd-14a44354f3a4",
+            "_id": "c4fec40e-bc80-4241-bb95-a110f3504628",
+            "colId": "78d7242f-ffd0-442c-9d23-82b106a366f0",
             "containerId": "",
             "name": "comment Post",
-            "url": "http://localhost:3000/comentariosApi/v1/comment/65e3b72b299bd57b2a86760e",
+            "url": "http://localhost:3000/comentariosApi/v1/comment/65e4c4d9af458cec59f5734a",
             "method": "POST",
             "sortNum": 10000,
-            "created": "2024-03-03T04:17:49.564Z",
-            "modified": "2024-03-03T16:50:36.555Z",
+            "created": "2024-03-03T18:35:46.500Z",
+            "modified": "2024-03-03T18:47:27.896Z",
             "headers": [
                 {
                     "name": "x-token",
-                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWUzNmMxZWRlMTZlNGFiZTg3NGMzZjAiLCJpYXQiOjE3MDk0ODEzNjAsImV4cCI6MTcwOTQ4ODU2MH0.lJzAun1ypMkm2s0RAoSN13UMaiBtY3z4TAiiVngPalI"
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWU0YzQ1OWFmNDU4Y2VjNTlmNTczMzMiLCJpYXQiOjE3MDk0OTE0MDQsImV4cCI6MTcwOTQ5ODYwNH0.5fWZ4JqC6ytPOTVqA0hziBH26Z1mfWV-KD-SqJ1RgRo"
                 }
             ],
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"commentText\": \"New comment\"\n}",
+                "raw": "{\n  \"commentText\": \"New comment :)\"\n}",
                 "form": []
             },
             "tests": []
         },
         {
-            "_id": "da97a251-7182-438c-a13e-b67f3b7980ad",
-            "colId": "795bb530-1b25-4a74-b9bd-14a44354f3a4",
+            "_id": "270f654f-cc4c-4e31-bb56-e12a72e1ceed",
+            "colId": "78d7242f-ffd0-442c-9d23-82b106a366f0",
             "containerId": "",
             "name": "comment Get",
             "url": "http://localhost:3000/comentariosApi/v1/comment/",
             "method": "GET",
             "sortNum": 20000,
-            "created": "2024-03-03T15:56:32.972Z",
-            "modified": "2024-03-03T16:07:51.164Z",
+            "created": "2024-03-03T18:35:46.501Z",
+            "modified": "2024-03-03T18:47:03.168Z",
             "headers": [
                 {
                     "name": "x-token",
-                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWUzNmJkMmUxYmNkMjdkNWRiODIzYWQiLCJpYXQiOjE3MDk0ODIwNTksImV4cCI6MTcwOTQ4OTI1OX0.AXgiihClaTj8ke6WjHKssHZfoOJAU7KEabgduFRYB-o"
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWU0YzQ1OWFmNDU4Y2VjNTlmNTczMzMiLCJpYXQiOjE3MDk0OTE0MDQsImV4cCI6MTcwOTQ5ODYwNH0.5fWZ4JqC6ytPOTVqA0hziBH26Z1mfWV-KD-SqJ1RgRo"
                 }
             ],
             "params": [],
             "tests": []
         },
         {
-            "_id": "f9947248-bfda-44a9-a562-2691df99f5e8",
-            "colId": "795bb530-1b25-4a74-b9bd-14a44354f3a4",
+            "_id": "d7790011-491e-4a25-83a2-448445dddc6f",
+            "colId": "78d7242f-ffd0-442c-9d23-82b106a366f0",
             "containerId": "",
             "name": "comment Put",
-            "url": "http://localhost:3000/comentariosApi/v1/comment/65e4aa5ca41fb6e1d3aed333",
+            "url": "http://localhost:3000/comentariosApi/v1/comment/65e4c59febc3b9741f6cc545",
             "method": "PUT",
             "sortNum": 30000,
-            "created": "2024-03-03T16:41:37.860Z",
-            "modified": "2024-03-03T16:51:18.022Z",
+            "created": "2024-03-03T18:35:46.502Z",
+            "modified": "2024-03-03T18:48:12.401Z",
             "headers": [
                 {
                     "name": "x-token",
-                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWUzNmMxZWRlMTZlNGFiZTg3NGMzZjAiLCJpYXQiOjE3MDk0ODQ2NjksImV4cCI6MTcwOTQ5MTg2OX0.fgIrmH-11uE72J1a5BUKp5T9LlR4JGe8NRDUEOz2lxI"
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWU0YzQ1OWFmNDU4Y2VjNTlmNTczMzMiLCJpYXQiOjE3MDk0OTE0MDQsImV4cCI6MTcwOTQ5ODYwNH0.5fWZ4JqC6ytPOTVqA0hziBH26Z1mfWV-KD-SqJ1RgRo"
                 }
             ],
             "params": [],
@@ -73,19 +73,19 @@
             "tests": []
         },
         {
-            "_id": "581bed9c-70ef-48bb-b19b-4f0fc82c45b5",
-            "colId": "795bb530-1b25-4a74-b9bd-14a44354f3a4",
+            "_id": "f5adfd05-1be6-464b-a953-dea49ba5fff7",
+            "colId": "78d7242f-ffd0-442c-9d23-82b106a366f0",
             "containerId": "",
             "name": "comment Delete",
-            "url": "http://localhost:3000/comentariosApi/v1/comment/65e4a70d4469dfd4c8f86ff0",
+            "url": "http://localhost:3000/comentariosApi/v1/comment/65e4c59febc3b9741f6cc545",
             "method": "DELETE",
             "sortNum": 40000,
-            "created": "2024-03-03T16:51:44.342Z",
-            "modified": "2024-03-03T16:58:14.949Z",
+            "created": "2024-03-03T18:35:46.503Z",
+            "modified": "2024-03-03T18:48:28.778Z",
             "headers": [
                 {
                     "name": "x-token",
-                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWUzNmMxZWRlMTZlNGFiZTg3NGMzZjAiLCJpYXQiOjE3MDk0ODQ4NDMsImV4cCI6MTcwOTQ5MjA0M30.VxZzbyXIh6EQadkqKAjrULXx5ZlOvdJ5tFypphVccAM"
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWU0YzQ1OWFmNDU4Y2VjNTlmNTczMzMiLCJpYXQiOjE3MDk0OTE0MDQsImV4cCI6MTcwOTQ5ODYwNH0.5fWZ4JqC6ytPOTVqA0hziBH26Z1mfWV-KD-SqJ1RgRo"
                 }
             ],
             "params": [],
