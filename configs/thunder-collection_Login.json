@@ -1,25 +1,25 @@
 {
     "client": "Thunder Client",
     "collectionName": "Login",
-    "dateExported": "2024-03-03T18:49:19.359Z",
+    "dateExported": "2024-03-03T20:28:58.133Z",
     "version": "1.1",
     "folders": [],
     "requests": [
         {
-            "_id": "978c5f22-5512-4167-b2d8-9a458c66ce55",
-            "colId": "4ae74bf2-9ce2-472f-aaf5-e51427336959",
+            "_id": "2f734e14-e63a-4e5a-b446-9e8a81ce6267",
+            "colId": "0c39d9d3-fa5d-48ac-9168-616145dc6f6f",
             "containerId": "",
             "name": "login",
             "url": "http://localhost:3000/comentariosApi/v1/auth/login",
             "method": "POST",
             "sortNum": 10000,
-            "created": "2024-03-03T18:35:46.523Z",
-            "modified": "2024-03-03T18:43:24.520Z",
+            "created": "2024-03-03T20:16:54.835Z",
+            "modified": "2024-03-03T20:28:42.684Z",
             "headers": [],
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"correo\": \"usuario1@gmail.com\",\n  \"password\": \"123456\"\n}",
+                "raw": "{\n  \"correo\": \"usuario1@gmail.com\",\n  \"password\": \"1234567\"\n}",
                 "form": []
             },
             "tests": []

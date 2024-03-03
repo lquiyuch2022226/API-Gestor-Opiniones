@@ -57,6 +57,12 @@ export const usuariosPut = async (req, res = response) => {
         });
     }
 
+    if(antiguaClave === nuevaClave){
+        return res.status(400).json({
+            msg: "These passwords are the same, plis change the new password"
+        });
+    }
+
     if(nuevaClave) {
         const salt = bcryptjs.genSaltSync();
         resto.password = bcryptjs.hashSync(nuevaClave, salt);

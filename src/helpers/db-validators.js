@@ -11,7 +11,7 @@ export const existenteEmail = async (correo = '') => {
 export const existeUsuarioById = async (id = '') => {
     const existeUsuario = await User.findById(id);
     if (!existeUsuario){
-        throw new Error(`This ${id} don't exists in database`);
+        throw new Error(`A user with this iD: ${id} don't exists in database`);
     }
 }
 

@@ -45,6 +45,7 @@ router.put(
     [
         check("id", "This isn't a valid ID").isMongoId(),
         check("id").custom(existeUsuarioById),
+        check("nuevaClave", "The new password must have minimum 6 characters").isLength({ min: 6 }),
         validarCampos,
     ],
     usuariosPut
