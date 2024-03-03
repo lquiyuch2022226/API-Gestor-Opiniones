@@ -11,7 +11,15 @@ export const commentPost = async (req, res) =>{
     const publication = await Publication.findById(publi);
 
     if (!publication) {
-        return res.status(404).json({ message: 'Publication not found, plis try with other publication' });
+        return res.status(404).json({ 
+            msg: 'Publication not found, plis try with other publication' 
+        });
+    }
+
+    if (!publication.estado) {
+        return res.status(400).json({ 
+            msg: 'Cannot add comment because the publication was deleted' 
+        });
     }
     
     const comment = new Comment({ idUser: uid, commentText});
