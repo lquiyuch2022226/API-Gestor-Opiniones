@@ -7,8 +7,8 @@ import { validarJWT } from '../middlwares/validar-jwt.js';
 import { 
     publicationPost,
     publicationsGet,
-    publicationPut,/*
-publicationsDelete */} from './publication.controller.js';
+    publicationPut,
+    publicationDelete } from './publication.controller.js';
 
 const router = Router();
 
@@ -28,9 +28,30 @@ router.put(
     "/:id",
     [
         validarJWT,
+        check('id', 'This is not a valid id').isMongoId(),
         validarCampos
     ],
     publicationPut
+);
+
+router.put(
+    "/:id",
+    [
+        validarJWT,
+        check('id', 'This is not a valid id').isMongoId(),
+        validarCampos
+    ],
+    publicationPut
+);
+
+router.delete(
+    "/:id",
+    [
+        validarJWT,
+        check('id', 'This is not a valid id').isMongoId(),
+        validarCampos
+    ],
+    publicationDelete
 );
 
 export default router;
