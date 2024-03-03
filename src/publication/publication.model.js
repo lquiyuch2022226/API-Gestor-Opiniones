@@ -20,7 +20,11 @@ const PublicationSchema = mongoose.Schema({
     estado: {
         type: Boolean,
         default: true
-    }
+    },
+    comments: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Comment'
+    }]
 });
 
 PublicationSchema.methods.toJSON = function(){

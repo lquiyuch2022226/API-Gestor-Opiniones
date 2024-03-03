@@ -26,23 +26,32 @@ export const publicationsGet = async (req, res) => {
         const publications = await Publication.find(query)
             .select('-__v -estado')
             .skip(Number(desde))
-            .limit(Number(limite));
+            .limit(Number(limite))
+            .populate({
+                path: 'comments',
+                populate: {
+                    path: 'idUser',
+                    select: 'nombre correo'
+                }
+            });
 
-
-        const publicacionesConUsuario = await Promise.all(publications.map(async (publication) => {
-            const user = await User.findById(publication.idUser);
+        const publicationsWithComments = publications.map(publication => {
+            const comentarios = publication.comments.map(comment => ({
+                idUser: comment.idUser ? comment.idUser.nombre : "Usuario no encontrado",
+                commentText: comment.commentText
+            }));
             return {
                 ...publication.toObject(),
-                idUser: user ? user.correo : "Usuario no encontrado",
+                idUser: publication.idUser ? publication.idUser.correo : "Usuario no encontrado",
+                comments: comentarios
             };
-        }));
+        });
 
         const total = await Publication.countDocuments(query);
 
-
         res.status(200).json({
             total,
-            publications: publicacionesConUsuario,
+            publications: publicationsWithComments,
         });
         
     } catch (error) {
@@ -50,6 +59,7 @@ export const publicationsGet = async (req, res) => {
         res.status(500).json({ message: 'Error interno del servidor' });
     }
 }
+
 
 export const publicationPut = async (req, res) => {
     const token = req.header('x-token');
