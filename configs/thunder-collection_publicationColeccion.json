@@ -1,7 +1,7 @@
 {
     "client": "Thunder Client",
     "collectionName": "publicationColeccion",
-    "dateExported": "2024-03-03T02:08:11.817Z",
+    "dateExported": "2024-03-03T03:22:57.197Z",
     "version": "1.1",
     "folders": [],
     "requests": [
@@ -70,6 +70,25 @@
                 "raw": "{\n  \"title\": \"Hola me confundí\",\n  \"category\": \"How I feel\",\n  \"text\": \"I'm feel so happy today\"\n}",
                 "form": []
             },
+            "tests": []
+        },
+        {
+            "_id": "6b248a46-767a-4860-a8e5-de4e0c4b411a",
+            "colId": "4ae30a4a-32c2-4915-9ce1-7f5af4e4c985",
+            "containerId": "",
+            "name": "publication Delete",
+            "url": "http://localhost:3000/comentariosApi/v1/publication/65e3cc5b299bd57b2a867611",
+            "method": "DELETE",
+            "sortNum": 40000,
+            "created": "2024-03-03T03:16:19.917Z",
+            "modified": "2024-03-03T03:17:30.751Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWUzNmJkMmUxYmNkMjdkNWRiODIzYWQiLCJpYXQiOjE3MDk0MzU4NDMsImV4cCI6MTcwOTQ0MzA0M30.Qgh7-v83xB1iSv-gUdHjvWc_xYLDAmIEEm1zzT9sLCA"
+                }
+            ],
+            "params": [],
             "tests": []
         }
     ]
