@@ -17,7 +17,7 @@ class Server{
         this.userPath = '/comentariosApi/v1/user';
         this.authPath = '/comentariosApi/v1/auth';
         this.publicationPath = '/comentariosApi/v1/publication';
-        this.commentPath = '/comentariosApi/v1/publication';
+        this.commentPath = '/comentariosApi/v1/comment';
 
         this.middlewares();
         this.conectarDB();

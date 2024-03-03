@@ -17,7 +17,7 @@ const CommentSchema = mongoose.Schema({
 
 CommentSchema.methods.toJSON = function(){
     const {__v, _id, ...comment} = this.toObject();
-    comment.pid = _id;
+    comment.commentId = _id;
     return comment;
 }
 

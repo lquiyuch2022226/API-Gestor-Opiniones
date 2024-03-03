@@ -1,0 +1,33 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "commentColeccion",
+    "dateExported": "2024-03-03T04:31:16.981Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "6735bc5e-7cc4-4229-8e77-1bae8e1d998d",
+            "colId": "795bb530-1b25-4a74-b9bd-14a44354f3a4",
+            "containerId": "",
+            "name": "comment Post",
+            "url": "http://localhost:3000/comentariosApi/v1/comment",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2024-03-03T04:17:49.564Z",
+            "modified": "2024-03-03T04:23:38.293Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWUzNmJkMmUxYmNkMjdkNWRiODIzYWQiLCJpYXQiOjE3MDk0Mzk4MDksImV4cCI6MTcwOTQ0NzAwOX0.wrDQyJ_aBsr1YWk7f4QrsRi8gsTi2fQAhU854B0hi_I"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"commentText\": \"Me too\"\n}",
+                "form": []
+            },
+            "tests": []
+        }
+    ]
+}
