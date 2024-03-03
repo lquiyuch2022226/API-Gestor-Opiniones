@@ -2,18 +2,17 @@ import Publication from './publication.model.js';
 import User from '../user/user.model.js'
 import jwt from 'jsonwebtoken';
 
-export const publicationPost = async (req, res) =>{
+export const publicationPost = async (req, res) => {
     const token = req.header('x-token');
 
     const { uid } = jwt.verify(token, process.env.SECRETORPRIVATEKEY);
-    const { title, category, text} = req.body;
+    const { title, category, text } = req.body;
 
-    const publication = new Publication({ title, category, text, idUser: uid});
+    const publication = new Publication({ title, category, text, idUser: uid });
 
     await publication.save();
 
     res.status(202).json({
-        uid,
         publication
     });
 }
@@ -27,6 +26,7 @@ export const publicationsGet = async (req, res) => {
             .select('-__v -estado')
             .skip(Number(desde))
             .limit(Number(limite))
+            .populate('idUser', 'correo')
             .populate({
                 path: 'comments',
                 populate: {
@@ -37,12 +37,12 @@ export const publicationsGet = async (req, res) => {
 
         const publicationsWithComments = publications.map(publication => {
             const comentarios = publication.comments.map(comment => ({
-                idUser: comment.idUser ? comment.idUser.nombre : "Usuario no encontrado",
+                idUser: comment.idUser ? comment.idUser.nombre : "User not found",
                 commentText: comment.commentText
             }));
             return {
                 ...publication.toObject(),
-                idUser: publication.idUser ? publication.idUser.correo : "Usuario no encontrado",
+                idUser: publication.idUser ? publication.idUser.correo : "User not found",
                 comments: comentarios
             };
         });
@@ -53,12 +53,13 @@ export const publicationsGet = async (req, res) => {
             total,
             publications: publicationsWithComments,
         });
-        
+
     } catch (error) {
         console.error(error);
-        res.status(500).json({ message: 'Error interno del servidor' });
+        res.status(500).json({ message: 'Server Error' });
     }
 }
+
 
 
 export const publicationPut = async (req, res) => {
@@ -66,17 +67,17 @@ export const publicationPut = async (req, res) => {
 
     const { uid } = jwt.verify(token, process.env.SECRETORPRIVATEKEY);
     const { id } = req.params;
-    const {_id, idUser, ...resto} = req.body;
+    const { _id, idUser, ...resto } = req.body;
 
-    const publication = await Publication.findOne({_id: id});
+    const publication = await Publication.findOne({ _id: id });
 
     if (!publication) {
-        return res.status(404).json({ msg: "Publication not found" });
+        return res.status(404).json({ msg: "Publication not found, plis try with other publication" });
     }
 
-    if(uid == publication.idUser){
+    if (uid == publication.idUser) {
         await Publication.findByIdAndUpdate(id, resto);
-    }else{
+    } else {
         res.status(400).json({
             msg: "You can't EDIT this publication because you din't create this PUBLICATION",
         });
@@ -84,7 +85,7 @@ export const publicationPut = async (req, res) => {
         return;
     }
 
-    const publicationUpdate = await Publication.findOne({_id: id});
+    const publicationUpdate = await Publication.findOne({ _id: id });
 
     res.status(200).json({
         msg: 'This publication was EDITED',
@@ -98,22 +99,22 @@ export const publicationDelete = async (req, res) => {
     const { id } = req.params;
 
 
-        const publication = await Publication.findById({_id: id});
+    const publication = await Publication.findById({ _id: id });
 
-        if (!publication) {
-            return res.status(404).json({ msg: "Publication not found" });
-        }    
+    if (!publication) {
+        return res.status(404).json({ msg: "Publication not found, plis try with other publication" });
+    }
 
-        if(uid == publication.idUser){
-            await Publication.findByIdAndUpdate(id, { estado: false });
-        }else{
-            res.status(400).json({
-                msg: "You can't DELETE this publication because you din't create this PUBLICATION",
-            });
-            return;
-        }
-
-        res.status(200).json({
-            msg: 'This publication was DELETED',
+    if (uid == publication.idUser) {
+        await Publication.findByIdAndUpdate(id, { estado: false });
+    } else {
+        res.status(400).json({
+            msg: "You can't DELETE this publication because you din't create this PUBLICATION",
         });
+        return;
+    }
+
+    res.status(200).json({
+        msg: 'This publication was DELETED',
+    });
 };

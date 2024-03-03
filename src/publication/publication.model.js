@@ -29,7 +29,7 @@ const PublicationSchema = mongoose.Schema({
 
 PublicationSchema.methods.toJSON = function(){
     const {__v, _id, ...publication} = this.toObject();
-    publication.pid = _id;
+    publication.publication_id = _id;
     return publication;
 }
 

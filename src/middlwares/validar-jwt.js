@@ -16,7 +16,7 @@ export const validarJWT = async (req, res, next) => {
 
     if(!usuario){
       return res.status(401).json({
-        msg: "User don't exist en database"
+        msg: "The token has a user that don't exist en database, plis change it"
       })
     }
 
