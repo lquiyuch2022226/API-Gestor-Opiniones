@@ -31,7 +31,7 @@ export const publicationsGet = async (req, res) => {
                 path: 'comments',
                 populate: {
                     path: 'idUser',
-                    select: 'nombre correo'
+                    select: 'correo'
                 }
             });
 

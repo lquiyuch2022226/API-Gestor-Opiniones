@@ -11,7 +11,7 @@ export const commentPost = async (req, res) =>{
     const publication = await Publication.findById(publi);
 
     if (!publication) {
-        return res.status(404).json({ message: 'La publicación no fue encontrada' });
+        return res.status(404).json({ message: 'Publication not found' });
     }
     
     const comment = new Comment({ idUser: uid, commentText});
@@ -23,8 +23,42 @@ export const commentPost = async (req, res) =>{
     await publication.save();
 
     res.status(202).json({
-        msg: 'Comentario agregado exitosamente a la publicación',
-        publicationId: publication._id, // Devolver el ID de la publicación
+        msg: 'Comment added to the publication',
+        publicationId: publication._id,
         comment
     });
+}
+
+export const commentsGet = async (req, res) => {
+    const { limite, desde } = req.query;
+    const query = { estado: true };
+
+    try {
+        const comments = await Comment.find(query)
+            .select('-__v -estado')
+            .skip(Number(desde))
+            .limit(Number(limite))
+            .populate({
+                path: 'idUser',
+                select: 'nombre correo'
+            });
+
+        const total = await Comment.countDocuments(query);
+
+        const commentsWithEmail = comments.map(comment => ({
+            Id_Comment: comment._id,
+            correo: comment.idUser ? comment.idUser.correo : "User not found",
+            commentText: comment.commentText,
+            commentId: comment.commentId
+        }));
+
+        res.status(200).json({
+            total,
+            commentsWithEmail
+        });
+        
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: 'Error interno del servidor' });
+    }
 }

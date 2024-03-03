@@ -4,8 +4,9 @@ import { validarCampos } from '../middlwares/validar-campos.js';
 import { validarJWT } from '../middlwares/validar-jwt.js';
 import { existePublicationById } from '../helpers/db-validators.js';
 
-import { 
-    commentPost
+import {
+    commentPost,
+    commentsGet
 } from './comment.controller.js';
 
 const router = Router();
@@ -18,5 +19,11 @@ router.post(
         check("commentText", "The comment is required").not().isEmpty(),
         validarCampos
     ], commentPost);
+
+router.get(
+    '/',
+    validarJWT,
+    commentsGet
+);
 
 export default router;

@@ -1,7 +1,7 @@
 {
     "client": "Thunder Client",
     "collectionName": "commentColeccion",
-    "dateExported": "2024-03-03T04:31:16.981Z",
+    "dateExported": "2024-03-03T16:34:10.967Z",
     "version": "1.1",
     "folders": [],
     "requests": [
@@ -10,23 +10,42 @@
             "colId": "795bb530-1b25-4a74-b9bd-14a44354f3a4",
             "containerId": "",
             "name": "comment Post",
-            "url": "http://localhost:3000/comentariosApi/v1/comment",
+            "url": "http://localhost:3000/comentariosApi/v1/comment/65e3b72b299bd57b2a86760e",
             "method": "POST",
             "sortNum": 10000,
             "created": "2024-03-03T04:17:49.564Z",
-            "modified": "2024-03-03T04:23:38.293Z",
+            "modified": "2024-03-03T15:56:13.210Z",
             "headers": [
                 {
                     "name": "x-token",
-                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWUzNmJkMmUxYmNkMjdkNWRiODIzYWQiLCJpYXQiOjE3MDk0Mzk4MDksImV4cCI6MTcwOTQ0NzAwOX0.wrDQyJ_aBsr1YWk7f4QrsRi8gsTi2fQAhU854B0hi_I"
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWUzNmMxZWRlMTZlNGFiZTg3NGMzZjAiLCJpYXQiOjE3MDk0ODEzNjAsImV4cCI6MTcwOTQ4ODU2MH0.lJzAun1ypMkm2s0RAoSN13UMaiBtY3z4TAiiVngPalI"
                 }
             ],
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"commentText\": \"Me too\"\n}",
+                "raw": "{\n  \"commentText\": \"I'm not xd\"\n}",
                 "form": []
             },
+            "tests": []
+        },
+        {
+            "_id": "da97a251-7182-438c-a13e-b67f3b7980ad",
+            "colId": "795bb530-1b25-4a74-b9bd-14a44354f3a4",
+            "containerId": "",
+            "name": "comment Get",
+            "url": "http://localhost:3000/comentariosApi/v1/comment/",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2024-03-03T15:56:32.972Z",
+            "modified": "2024-03-03T16:07:51.164Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWUzNmJkMmUxYmNkMjdkNWRiODIzYWQiLCJpYXQiOjE3MDk0ODIwNTksImV4cCI6MTcwOTQ4OTI1OX0.AXgiihClaTj8ke6WjHKssHZfoOJAU7KEabgduFRYB-o"
+                }
+            ],
+            "params": [],
             "tests": []
         }
     ]
