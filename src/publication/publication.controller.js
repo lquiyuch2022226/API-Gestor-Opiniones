@@ -28,7 +28,7 @@ export const publicationsGet = async (req, res) => {
             .skip(Number(desde))
             .limit(Number(limite));
 
-        // Obtener la lista de mascotas con nombres de propietarios
+
         const publicacionesConUsuario = await Promise.all(publications.map(async (publication) => {
             const user = await User.findById(publication.idUser);
             return {
@@ -37,10 +37,9 @@ export const publicationsGet = async (req, res) => {
             };
         }));
 
-        // Obtener el total de mascotas
         const total = await Publication.countDocuments(query);
 
-        // Responder con la lista de mascotas y su total
+
         res.status(200).json({
             total,
             publications: publicacionesConUsuario,
@@ -50,4 +49,31 @@ export const publicationsGet = async (req, res) => {
         console.error(error);
         res.status(500).json({ message: 'Error interno del servidor' });
     }
+}
+
+export const publicationPut = async (req, res) => {
+    const token = req.header('x-token');
+
+    const { uid } = jwt.verify(token, process.env.SECRETORPRIVATEKEY);
+    const { id } = req.params;
+    const {_id, idUser, ...resto} = req.body;
+
+    const publication = await Publication.findOne({_id: id});
+
+    if(uid == publication.idUser){
+        await Publication.findByIdAndUpdate(id, resto);
+    }else{
+        res.status(400).json({
+            msg: "You can't edit this publication because you din't create this post",
+        });
+        
+        return;
+    }
+
+    const publicationUpdate = await Publication.findOne({_id: id});
+
+    res.status(200).json({
+        msg: 'This publication was edited',
+        publicationUpdate
+    });
 }

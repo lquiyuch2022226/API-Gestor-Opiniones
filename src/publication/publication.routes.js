@@ -7,7 +7,7 @@ import { validarJWT } from '../middlwares/validar-jwt.js';
 import { 
     publicationPost,
     publicationsGet,
-    /*publicationsPut,
+    publicationPut,/*
 publicationsDelete */} from './publication.controller.js';
 
 const router = Router();
@@ -23,5 +23,14 @@ router.post(
     ], publicationPost);
 
 router.get('/', validarJWT, publicationsGet);
+
+router.put(
+    "/:id",
+    [
+        validarJWT,
+        validarCampos
+    ],
+    publicationPut
+);
 
 export default router;
